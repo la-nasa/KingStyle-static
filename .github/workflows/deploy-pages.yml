@@ -5,13 +5,14 @@ on:
     branches: [ main ]
   workflow_dispatch: {}
 
+# permissions nécessaires pour GitHub Pages actions
 permissions:
   contents: read
   pages: write
   id-token: write
 
 jobs:
-  build-and-deploy:
+  deploy:
     runs-on: ubuntu-latest
 
     steps:
@@ -19,20 +20,16 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Prepare site directory
-        # copy all site files into a "public" folder (exclude .git and workflows)
+        # copie tous les fichiers du repo dans public/ en excluant ce qui n'est pas nécessaire
         run: |
           rm -rf public || true
           mkdir -p public
-          rsync -av --progress --exclude='.git' --exclude='.github' --exclude='README.md' --exclude='node_modules' ./ public/
+          rsync -av --progress --exclude='.git' --exclude='.github' --exclude='node_modules' --exclude='README.md' ./ public/
 
       - name: Upload artifact for GitHub Pages
         uses: actions/upload-pages-artifact@v1
         with:
           path: public
 
-  deploy:
-    needs: build-and-deploy
-    runs-on: ubuntu-latest
-    steps:
       - name: Deploy to GitHub Pages
         uses: actions/deploy-pages@v1
