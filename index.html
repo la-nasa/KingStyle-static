@@ -1,0 +1,385 @@
+<!doctype html>
+<html lang="fr" data-theme="light">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>KING STYLE EVENT'S — Agence événementielle moderne & optimisée</title>
+  <meta name="description" content="KING STYLE EVENT'S — Agence événementielle : mariages, conférences, lancements, concerts. Design ultra-moderne, animations spectaculaires et UX exceptionnelle.">
+  <meta name="keywords" content="événementiel, agence événementielle, mariage, concert, lancement produit, design, organisation événement">
+
+  <!-- Tailwind -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- AOS pour scroll animations -->
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <!-- GSAP pour animations avancées -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  <!-- Lottie -->
+  <script src="https://unpkg.com/@lottiefiles/lottie-player@1.5.7/dist/lottie-player.js"></script>
+
+  <style>
+    :root{--accent-pink:#ff2d95;--accent-black:#0b0b0b;--accent-2:#7c3aed}
+    html[data-theme='dark'] { background: #05060a; color: #e6eef8 }
+    body{transition:background .4s ease,color .4s ease}
+    .blob { filter: blur(36px); opacity: .9; transform-origin:center }
+    .glass { background: linear-gradient(135deg, rgba(255,255,255,0.04), rgba(255,255,255,0.02)); backdrop-filter: blur(8px); }
+    .fancy-cursor{position:fixed;pointer-events:none;z-index:9999;width:22px;height:22px;border-radius:999px;border:3px solid var(--accent-pink);transform:translate(-50%,-50%);mix-blend-mode:normal}
+    .tilt{transition:transform .45s cubic-bezier(.2,.9,.2,1);will-change:transform}
+    .tilt:hover{transform:translateY(-10px) rotate(-1deg) scale(1.03)}
+    .btn-cta{box-shadow:0 10px 30px rgba(124,58,237,0.15);}
+    @media (min-width:1024px){ .hero-lottie{height:520px} }
+    @media (max-width:1023px){ .hero-lottie{height:320px} }
+  </style>
+</head>
+<body class="antialiased bg-gradient-to-b from-white via-gray-50 to-gray-100 text-gray-900 selection:bg-pink-200 selection:text-pink-900">
+  <!-- cursor -->
+  <div id="cursor" class="fancy-cursor hidden" aria-hidden="true"></div>
+
+  <!-- NAVBAR -->
+  <header class="fixed w-full z-50">
+    <nav class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between backdrop-blur-md glass rounded-b-2xl shadow">
+      <a href="#home" class="flex items-center gap-4" aria-label="Accueil - KING STYLE EVENTS">
+        <div class="w-12 h-12 rounded-full bg-black flex items-center justify-center text-[18px] font-extrabold text-white" style="border:4px solid var(--accent-pink);">KS</div>
+        <div class="leading-4">
+          <div class="font-bold">KING STYLE EVENT'S</div>
+          <div class="text-xs text-gray-500">Agence événementielle</div>
+        </div>
+      </a>
+
+      <div class="hidden md:flex items-center gap-6">
+        <a href="#services" class="text-sm hover:text-[var(--accent-pink)]">Services</a>
+        <a href="#types" class="text-sm hover:text-[var(--accent-pink)]">Événements</a>
+        <a href="#portfolio" class="text-sm hover:text-[var(--accent-pink)]">Portfolio</a>
+        <a href="#plan" class="text-sm hover:text-[var(--accent-pink)]">Plan</a>
+        <a href="#contact" class="text-sm text-white bg-gradient-to-r from-[var(--accent-pink)] to-[var(--accent-2)] px-4 py-2 rounded-lg btn-cta">Demander un devis</a>
+      </div>
+
+      <div class="md:hidden flex items-center gap-3">
+        <button id="dark-toggle" aria-label="Toggle dark mode" class="p-2 rounded-md glass">🌙</button>
+        <button id="nav-toggle" class="p-2 rounded-md glass">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
+        </button>
+      </div>
+    </nav>
+    <div id="mobile-menu" class="hidden md:hidden bg-white/90 backdrop-blur-sm p-4 rounded-b-2xl">
+      <a href="#services" class="block py-2">Services</a>
+      <a href="#types" class="block py-2">Types d'événements</a>
+      <a href="#portfolio" class="block py-2">Portfolio</a>
+      <a href="#contact" class="block py-2 text-[var(--accent-pink)]">Contact</a>
+    </div>
+  </header>
+
+  <main class="pt-28">
+    <!-- HERO with optimized image using <picture> and Lottie -->
+    <section id="home" class="relative overflow-hidden">
+      <svg id="blob-svg" class="absolute -left-48 top-8 w-[700px] h-[700px] blob" viewBox="0 0 600 600" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <defs>
+          <linearGradient id="g1" x1="0" x2="1"><stop offset="0" stop-color="var(--accent-pink)"/><stop offset="1" stop-color="#7c3aed"/></linearGradient>
+        </defs>
+        <path id="blob-path" d="M300,50 C380,80 470,120 490,210 C510,300 440,390 360,430 C280,470 170,460 110,400 C50,340 40,240 90,180 C140,120 220,20 300,50Z" fill="url(#g1)" opacity="0.9"/>
+      </svg>
+
+      <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-8 items-center relative z-10">
+        <div class="py-12" data-aos="fade-right">
+          <h1 class="text-4xl md:text-5xl font-extrabold leading-tight">Nous façonnons des moments <span class="text-[var(--accent-pink)]">magiques</span> et <span class="text-[var(--accent-2)]">spectaculaires</span></h1>
+          <p class="mt-4 text-gray-600">KING STYLE EVENT'S crée des expériences uniques — mariages, conférences, lancements, concerts et événements d'entreprise — avec créativité, précision et technologie immersive.</p>
+
+          <div class="mt-6 flex gap-4 items-center">
+            <a href="#contact" class="inline-flex items-center gap-3 text-white px-5 py-3 rounded-lg bg-gradient-to-r from-[var(--accent-pink)] to-[var(--accent-2)] btn-cta">Demander un devis</a>
+            <a href="#portfolio" class="text-sm text-gray-700 hover:text-[var(--accent-pink)]">Voir nos réalisations →</a>
+          </div>
+
+          <div class="mt-8 flex gap-6">
+            <div class="p-4 bg-white rounded-2xl shadow tilt">
+              <div class="text-2xl font-bold" data-count="320">0</div>
+              <div class="text-xs text-gray-500">Événements réalisés</div>
+            </div>
+            <div class="p-4 bg-white rounded-2xl shadow tilt">
+              <div class="text-2xl font-bold" data-count="152">0</div>
+              <div class="text-xs text-gray-500">Clients satisfaits</div>
+            </div>
+            <div class="p-4 bg-white rounded-2xl shadow tilt">
+              <div class="text-2xl font-bold" data-count="24">0</div>
+              <div class="text-xs text-gray-500">Partenaires</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="relative" data-aos="fade-left">
+          <div class="bg-white rounded-3xl shadow-2xl p-6">
+            <!-- picture element: WebP first then fallback jpg/png with srcset -->
+            <picture>
+              <source type="image/webp" srcset="https://images.unsplash.com/photo-1506152983158-2f53b236b25b?w=400&fm=webp 400w, https://images.unsplash.com/photo-1506152983158-2f53b236b25b?w=800&fm=webp 800w, https://images.unsplash.com/photo-1506152983158-2f53b236b25b?w=1200&fm=webp 1200w" sizes="(max-width: 768px) 100vw, 50vw">
+              <img loading="lazy" src="https://images.unsplash.com/photo-1506152983158-2f53b236b25b?w=1200&auto=format&fit=crop&q=80" srcset="https://images.unsplash.com/photo-1506152983158-2f53b236b25b?w=400&auto=format&fit=crop&q=80 400w, https://images.unsplash.com/photo-1506152983158-2f53b236b25b?w=800&auto=format&fit=crop&q=80 800w, https://images.unsplash.com/photo-1506152983158-2f53b236b25b?w=1200&auto=format&fit=crop&q=80 1200w" alt="Événement chic" class="w-full h-[320px] object-cover rounded-2xl">
+            </picture>
+
+            <div class="-mt-6 p-4 bg-white/80 rounded-xl glass">
+              <h4 class="font-semibold">Service sur-mesure</h4>
+              <p class="text-sm text-gray-600">De la conception à la réalisation, nous coordonnons chaque détail pour un événement parfait.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SERVICES (cards use picture where images used) -->
+    <section id="services" class="py-20">
+      <div class="max-w-7xl mx-auto px-6">
+        <div class="flex items-center justify-between mb-8">
+          <h2 class="text-3xl font-bold">Nos services</h2>
+          <a href="#contact" class="text-sm text-[var(--accent-pink)]">Demandez un brief →</a>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+          <!-- card content unchanged (icons) -->
+          <article class="p-6 bg-white rounded-2xl shadow hover:shadow-2xl transition-transform transform tilt" data-aos="zoom-in">
+            <div class="flex items-center gap-3">
+              <div class="w-12 h-12 rounded-lg bg-gradient-to-br from-[var(--accent-pink)] to-[var(--accent-2)] flex items-center justify-center text-white">🎨</div>
+              <h3 class="font-semibold">Conception & planification</h3>
+            </div>
+            <p class="mt-3 text-gray-600">Concepts créatifs, scénarisation, moodboards et planning détaillé.</p>
+            <button class="mt-4 text-sm text-[var(--accent-pink)] hover:underline" onclick="openDetail('Conception & planification')">En savoir plus</button>
+          </article>
+
+          <article class="p-6 bg-white rounded-2xl shadow hover:shadow-2xl transition-transform transform tilt" data-aos="zoom-in" data-aos-delay="80">
+            <div class="flex items-center gap-3">
+              <div class="w-12 h-12 rounded-lg bg-gradient-to-br from-indigo-600 to-cyan-400 flex items-center justify-center text-white">🔊</div>
+              <h3 class="font-semibold">Organisation logistique</h3>
+            </div>
+            <p class="mt-3 text-gray-600">Technique, sécurité, coordination sur site et régie.</p>
+            <button class="mt-4 text-sm text-[var(--accent-pink)] hover:underline" onclick="openDetail('Organisation logistique')">En savoir plus</button>
+          </article>
+
+          <article class="p-6 bg-white rounded-2xl shadow hover:shadow-2xl transition-transform transform tilt" data-aos="zoom-in" data-aos-delay="160">
+            <div class="flex items-center gap-3">
+              <div class="w-12 h-12 rounded-lg bg-gradient-to-br from-rose-500 to-orange-400 flex items-center justify-center text-white">📣</div>
+              <h3 class="font-semibold">Marketing & promotion</h3>
+            </div>
+            <p class="mt-3 text-gray-600">Campagnes digitales, relations presse et influence.</p>
+            <button class="mt-4 text-sm text-[var(--accent-pink)] hover:underline" onclick="openDetail('Marketing & promotion')">En savoir plus</button>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- PORTFOLIO: pictures optimized with webp + srcset -->
+    <section id="portfolio" class="py-20">
+      <div class="max-w-7xl mx-auto px-6">
+        <div class="flex items-center justify-between mb-6">
+          <h2 class="text-3xl font-bold">Nos réalisations</h2>
+          <div class="flex gap-3">
+            <button id="filter-all" class="px-4 py-2 rounded-lg glass">Tous</button>
+            <button id="filter-priv" class="px-4 py-2 rounded-lg glass">Privé</button>
+            <button id="filter-pro" class="px-4 py-2 rounded-lg glass">Professionnel</button>
+          </div>
+        </div>
+
+        <div id="gallery" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          <!-- image 1 -->
+          <div class="rounded-xl overflow-hidden shadow-lg hover:scale-105 transition-transform cursor-pointer" data-src-webp="https://images.unsplash.com/photo-1487014679447-9f8336841d58?w=1200&fm=webp" data-src="https://images.unsplash.com/photo-1487014679447-9f8336841d58?w=1200&auto=format&fit=crop&q=80" data-type="pro" onclick="openModal(this)">
+            <picture>
+              <source type="image/webp" srcset="https://images.unsplash.com/photo-1487014679447-9f8336841d58?w=400&fm=webp 400w, https://images.unsplash.com/photo-1487014679447-9f8336841d58?w=800&fm=webp 800w, https://images.unsplash.com/photo-1487014679447-9f8336841d58?w=1200&fm=webp 1200w" sizes="(max-width:768px) 100vw, 33vw">
+              <img loading="lazy" src="https://images.unsplash.com/photo-1487014679447-9f8336841d58?w=1200&auto=format&fit=crop&q=80" srcset="https://images.unsplash.com/photo-1487014679447-9f8336841d58?w=400&auto=format&fit=crop&q=80 400w, https://images.unsplash.com/photo-1487014679447-9f8336841d58?w=800&auto=format&fit=crop&q=80 800w, https://images.unsplash.com/photo-1487014679447-9f8336841d58?w=1200&auto=format&fit=crop&q=80 1200w" alt="Soirée corporate" class="w-full h-64 object-cover">
+            </picture>
+            <div class="p-4 bg-white">Soirée corporate — Gestion complète</div>
+          </div>
+
+          <!-- image 2 -->
+          <div class="rounded-xl overflow-hidden shadow-lg hover:scale-105 transition-transform cursor-pointer" data-src-webp="https://images.unsplash.com/photo-1504006833117-8886a3d2b5b6?w=1200&fm=webp" data-src="https://images.unsplash.com/photo-1504006833117-8886a3d2b5b6?w=1200&auto=format&fit=crop&q=80" data-type="priv" onclick="openModal(this)">
+            <picture>
+              <source type="image/webp" srcset="https://images.unsplash.com/photo-1504006833117-8886a3d2b5b6?w=400&fm=webp 400w, https://images.unsplash.com/photo-1504006833117-8886a3d2b5b6?w=800&fm=webp 800w, https://images.unsplash.com/photo-1504006833117-8886a3d2b5b6?w=1200&fm=webp 1200w" sizes="(max-width:768px) 100vw, 33vw">
+              <img loading="lazy" src="https://images.unsplash.com/photo-1504006833117-8886a3d2b5b6?w=1200&auto=format&fit=crop&q=80" srcset="https://images.unsplash.com/photo-1504006833117-8886a3d2b5b6?w=400&auto=format&fit=crop&q=80 400w, https://images.unsplash.com/photo-1504006833117-8886a3d2b5b6?w=800&auto=format&fit=crop&q=80 800w, https://images.unsplash.com/photo-1504006833117-8886a3d2b5b6?w=1200&auto=format&fit=crop&q=80 1200w" alt="Mariage élégant" class="w-full h-64 object-cover">
+            </picture>
+            <div class="p-4 bg-white">Mariage — Coordination & décoration</div>
+          </div>
+
+          <!-- image 3 -->
+          <div class="rounded-xl overflow-hidden shadow-lg hover:scale-105 transition-transform cursor-pointer" data-src-webp="https://images.unsplash.com/photo-1497032628192-86f99bcd76bc?w=1200&fm=webp" data-src="https://images.unsplash.com/photo-1497032628192-86f99bcd76bc?w=1200&auto=format&fit=crop&q=80" data-type="pro" onclick="openModal(this)">
+            <picture>
+              <source type="image/webp" srcset="https://images.unsplash.com/photo-1497032628192-86f99bcd76bc?w=400&fm=webp 400w, https://images.unsplash.com/photo-1497032628192-86f99bcd76bc?w=800&fm=webp 800w, https://images.unsplash.com/photo-1497032628192-86f99bcd76bc?w=1200&fm=webp 1200w" sizes="(max-width:768px) 100vw, 33vw">
+              <img loading="lazy" src="https://images.unsplash.com/photo-1497032628192-86f99bcd76bc?w=1200&auto=format&fit=crop&q=80" srcset="https://images.unsplash.com/photo-1497032628192-86f99bcd76bc?w=400&auto=format&fit=crop&q=80 400w, https://images.unsplash.com/photo-1497032628192-86f99bcd76bc?w=800&auto=format&fit=crop&q=80 800w, https://images.unsplash.com/photo-1497032628192-86f99bcd76bc?w=1200&auto=format&fit=crop&q=80 1200w" alt="Festival" class="w-full h-64 object-cover">
+            </picture>
+            <div class="p-4 bg-white">Festival — Programmation & régie</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Modal -->
+      <div id="modal" class="fixed inset-0 bg-black/70 hidden items-center justify-center z-50">
+        <div class="bg-white rounded-xl overflow-hidden max-w-4xl w-full transform transition-transform duration-300 scale-90">
+          <div class="relative">
+            <button onclick="closeModal()" class="absolute right-4 top-4 z-50 bg-white rounded-full p-2 shadow">✕</button>
+            <picture>
+              <source id="modal-src-webp" type="image/webp" srcset="">
+              <img id="modal-img" src="" alt="" class="w-full h-[60vh] object-cover">
+            </picture>
+            <div class="p-4">
+              <h4 id="modal-title" class="font-semibold">Détails</h4>
+              <p id="modal-desc" class="text-sm text-gray-600">Description de la réalisation.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT: Formspree + Netlify dual option; honeypot included -->
+    <section id="contact" class="py-20 bg-gradient-to-b from-white to-gray-50">
+      <div class="max-w-4xl mx-auto px-6">
+        <h2 class="text-3xl font-bold text-center mb-6">Contactez-nous</h2>
+        <div class="bg-white rounded-2xl shadow p-6 grid grid-cols-1 md:grid-cols-2 gap-6">
+
+          <!-- FORM: We'll use JS to send to Formspree if formspreeId is configured; otherwise, the form is a Netlify form fallback -->
+          <form id="contact-form" name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field" class="space-y-4" data-aos="fade-right">
+            <!-- Netlify honeypot field -->
+            <input type="hidden" name="form-name" value="contact">
+            <p class="hidden"><label>Ne pas remplir<input name="bot-field" /></label></p>
+
+            <div>
+              <label class="block text-sm font-medium text-gray-700">Nom</label>
+              <input required name="name" id="name" class="mt-1 block w-full border rounded-lg px-3 py-2" placeholder="Votre nom">
+            </div>
+            <div>
+              <label class="block text-sm font-medium text-gray-700">Email</label>
+              <input required type="email" name="email" id="email" class="mt-1 block w-full border rounded-lg px-3 py-2" placeholder="votre@exemple.com">
+            </div>
+            <div>
+              <label class="block text-sm font-medium text-gray-700">Message</label>
+              <textarea required name="message" id="message" rows="4" class="mt-1 block w-full border rounded-lg px-3 py-2" placeholder="Parlez-nous de votre projet..."></textarea>
+            </div>
+
+            <!-- honeypot for Formspree (server side) -->
+            <input type="text" name="_gotcha" style="display:none">
+
+            <div class="flex items-center gap-3">
+              <button type="submit" class="px-5 py-3 bg-gradient-to-r from-[var(--accent-pink)] to-[var(--accent-2)] text-white rounded-lg">Envoyer</button>
+              <button type="button" id="mailto-btn" class="px-4 py-3 border rounded-lg">Envoyer via email</button>
+              <div id="form-status" class="text-sm text-gray-600"></div>
+            </div>
+          </form>
+
+          <div class="p-4" data-aos="fade-left">
+            <h3 class="font-semibold">Nos coordonnées</h3>
+            <p class="text-gray-600 mt-2">Email : <a href="mailto:contact@kingstyleevents.com" class="text-[var(--accent-pink)]">contact@kingstyleevents.com</a></p>
+            <p class="text-gray-600 mt-1">Téléphone : <a href="tel:+237600000000" class="text-[var(--accent-pink)]">+237 6X XX XX XX</a></p>
+            <p class="text-gray-600 mt-1">Adresse : Yaoundé, Cameroun</p>
+
+            <div class="mt-6">
+              <h4 class="font-medium">Réseaux sociaux</h4>
+              <div class="flex gap-3 mt-3">
+                <a href="#" aria-label="Instagram" class="rounded-full p-3 glass">IG</a>
+                <a href="#" aria-label="Facebook" class="rounded-full p-3 glass">FB</a>
+                <a href="#" aria-label="LinkedIn" class="rounded-full p-3 glass">IN</a>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="py-10 bg-gray-900 text-gray-300">
+    <div class="max-w-7xl mx-auto px-6 flex flex-col md:flex-row md:justify-between items-center gap-4">
+      <div class="flex items-center gap-3">
+        <div class="w-12 h-12 rounded-full bg-black text-[var(--accent-pink)] flex items-center justify-center font-bold">KS</div>
+        <div>
+          <div class="font-semibold">KING STYLE EVENT'S</div>
+          <div class="text-sm">© <span id="year"></span> Tous droits réservés</div>
+        </div>
+      </div>
+      <nav class="flex gap-4 text-sm">
+        <a href="#services">Services</a>
+        <a href="#portfolio">Portfolio</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </div>
+  </footer>
+
+  <button id="backTop" class="fixed right-6 bottom-6 bg-[var(--accent-pink)] text-white p-3 rounded-full shadow-lg hidden" aria-label="Haut de page">↑</button>
+
+  <script>
+    AOS.init({ duration: 800, once: true });
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    document.getElementById('nav-toggle').addEventListener('click', function(){ const m = document.getElementById('mobile-menu'); m.classList.toggle('hidden'); });
+
+    const darkBtn = document.getElementById('dark-toggle');
+    darkBtn.addEventListener('click', ()=>{ const html = document.documentElement; const mode = html.getAttribute('data-theme') === 'dark' ? 'light' : 'dark'; html.setAttribute('data-theme', mode); darkBtn.textContent = mode === 'dark' ? '☀️' : '🌙'; });
+
+    if(window.innerWidth>900){ const cursor = document.getElementById('cursor'); cursor.classList.remove('hidden'); window.addEventListener('mousemove', e=>{ cursor.style.left = e.clientX + 'px'; cursor.style.top = e.clientY + 'px'; }); }
+
+    const blobPath = document.getElementById('blob-path');
+    const shapes = [
+      'M300,50 C380,80 470,120 490,210 C510,300 440,390 360,430 C280,470 170,460 110,400 C50,340 40,240 90,180 C140,120 220,20 300,50Z',
+      'M300,40 C380,70 470,110 470,200 C470,290 410,370 330,410 C250,450 150,450 100,390 C50,330 10,230 80,180 C150,130 220,40 300,40Z',
+      'M300,60 C360,80 440,120 480,200 C520,280 460,360 380,420 C300,480 200,470 130,400 C60,330 30,230 90,170 C150,110 220,40 300,60Z'
+    ];
+    gsap.to(blobPath, {duration:8, attr:{d:shapes[1]}, repeat:-1, yoyo:true, ease:'sine.inOut'});
+
+    gsap.utils.toArray('[data-count]').forEach(el => { const end = +el.getAttribute('data-count'); gsap.fromTo(el, {innerText:0}, {innerText:end, duration:1.6, snap:{innerText:1}, ease:'power1.out', onUpdate:function(){ el.innerText = Math.floor(el.innerText) } }); });
+
+    // Gallery modal + webp support
+    function openModal(node){
+      const webp = node.getAttribute('data-src-webp');
+      const src = node.getAttribute('data-src');
+      document.getElementById('modal-img').src = src;
+      document.getElementById('modal-src-webp').setAttribute('srcset', webp);
+      document.getElementById('modal-title').textContent = node.querySelector('div').innerText || 'Réalisation';
+      document.getElementById('modal-desc').textContent = 'Galerie — cliquez pour fermer.';
+      const m = document.getElementById('modal'); m.classList.remove('hidden'); m.classList.add('flex'); gsap.fromTo('#modal > div', {scale:0.9, y:30}, {scale:1, y:0, duration:0.4});
+    }
+    function closeModal(){ document.getElementById('modal').classList.add('hidden'); document.getElementById('modal').classList.remove('flex'); }
+    document.getElementById('modal').addEventListener('click', function(e){ if(e.target.id==='modal') closeModal(); });
+
+    // Filters
+    document.getElementById('filter-all').addEventListener('click', ()=> filterGallery('all'));
+    document.getElementById('filter-priv').addEventListener('click', ()=> filterGallery('priv'));
+    document.getElementById('filter-pro').addEventListener('click', ()=> filterGallery('pro'));
+    function filterGallery(type){ const items = document.querySelectorAll('#gallery > div'); items.forEach(i=>{ if(type==='all' || i.getAttribute('data-type')===type) i.style.display='block'; else i.style.display='none'; }); }
+
+    (function(){ const wrap = document.getElementById('test-wrap'); if(!wrap) return; let i=0; setInterval(()=>{ i = (i+1) % 3; wrap.style.transform = `translateX(${ -i * (wrap.children[0].offsetWidth + 24) }px)`; },4500); })();
+
+    const back = document.getElementById('backTop'); window.addEventListener('scroll', ()=>{ if(window.scrollY>400) back.classList.remove('hidden'); else back.classList.add('hidden'); }); back.addEventListener('click', ()=> window.scrollTo({top:0,behavior:'smooth'}));
+
+    // Form: Dual support for Formspree (fetch) and Netlify (static) + honeypot
+    // HOW TO USE:
+    // 1) To use Formspree: replace 'YOUR_FORMSPREE_ID' below with your Formspree form id (e.g. f/abcdefg) and the form will send via fetch.
+    // 2) To use Netlify Forms: deploy this site to Netlify; the <form> element has data-netlify="true" and will be captured by Netlify.
+
+    const FORMSPREE_ID = 'YOUR_FORMSPREE_ID'; // <-- replace with your Formspree id or leave empty to rely on Netlify
+    const form = document.getElementById('contact-form');
+    const status = document.getElementById('form-status');
+
+    form.addEventListener('submit', function(e){
+      e.preventDefault();
+      status.textContent = 'Envoi en cours...';
+
+      // Honeypot check
+      if(document.querySelector('[name="bot-field"]').value){ status.textContent = 'Spam détecté.'; return; }
+
+      const data = new FormData(form);
+      // If Formspree ID set, send via fetch
+      if(FORMSPREE_ID && FORMSPREE_ID !== 'YOUR_FORMSPREE_ID'){
+        fetch(`https://formspree.io/f/${FORMSPREE_ID}`, { method: 'POST', body: data, headers:{ 'Accept':'application/json' } }).then(res=>{
+          if(res.ok){ status.textContent = 'Message envoyé — merci !'; form.reset(); } else { res.json().then(j=>{ status.textContent = j.error || 'Erreur lors de l\'envoi.' }); }
+        }).catch(()=>{ status.textContent = 'Erreur réseau. Veuillez utiliser l\'option mailto.' });
+      } else {
+        // Netlify fallback: submit the form normally (this will cause a page reload if deployed on Netlify)
+        status.textContent = 'Formulaire prêt — votre site doit être sur Netlify pour l\'enregistrer automatiquement. Ou utilisez mailto.';
+        setTimeout(()=>{ form.submit(); }, 700);
+      }
+    });
+
+    document.getElementById('mailto-btn').addEventListener('click', ()=>{
+      const name = document.getElementById('name').value || 'Nom';
+      const email = document.getElementById('email').value || 'votre@exemple.com';
+      const subject = encodeURIComponent('Demande de devis — KING STYLE EVENT\'S');
+      const body = encodeURIComponent(`Nom: ${name}%0AEmail: ${email}%0A%0A${document.getElementById('message').value || ''}`);
+      window.location.href = `mailto:contact@kingstyleevents.com?subject=${subject}&body=${body}`;
+    });
+
+    function openDetail(title){ alert(title + 'Nous vous contacterons pour plus de détails.'); }
+  </script>
+</body>
+</html>
